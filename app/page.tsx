@@ -7,36 +7,48 @@ import React from "react";
 import { useState } from "react";
 
 export default function Home() {
+
+  // Note: In tabs array instead of storing component directly <Profile/> store its  references {component:Profile}
   const tabs = [
     {
       name: "Profile",
-      component: <Profile />,
+      component: Profile,
     },
     {
       name: "Interest",
-      component: <Interest />,
+      component:Interest,
     },
     {
       name: "Settings",
-      component: <Settings />,
+      component:Settings,
     },
   ];
-  const [activeComponent, setActiveComponent] = useState<any>(<Profile />);
+  const [activeTab, setActiveTab] = useState<any>(0);
+  const [data , setData]=useState({
+    name:"Harsh",
+    age:23,
+    email:"srivas@gmail.com",
+    interest:["coding" ,"dancing","gaming"],
+    settings:"dark"
+
+  })
+  // it makes easier to pass Props to children
+  const ActiveTabComponent = tabs[activeTab].component
   return (
     <div>
-      <div className="flex flex-row items-center justify-center   ">
+      <div className="flex flex-row items-center justify-center  ">
         {tabs.map((t, index) => (
           <div
             key={index}
-            className="px-4"
-            onClick={() => setActiveComponent(t.component)}
+            className="px-4 cursor-pointer "
+            onClick={() => setActiveTab(index)}
           >
             {t.name}
           </div>
         ))}
       </div>
       <div className=" flex items-center justify-center ">
-        {activeComponent}
+        <ActiveTabComponent data={data} setData={setData} setActiveTab={setActiveTab} />
       </div>
     </div>
   );
