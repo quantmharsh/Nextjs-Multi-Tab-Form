@@ -28,7 +28,7 @@ export default function Home() {
     name:"Harsh",
     age:23,
     email:"srivas@gmail.com",
-    interest:["coding" ,"dancing","gaming"],
+    interest:["coding", "dancing", "gaming", "reading", "music"],
     settings:"dark"
 
   })

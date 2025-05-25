@@ -36,6 +36,8 @@ const Profile = ( {data , setData , setActiveTab }:{
           <div className="font-semibold pr-4 "> Email </div>
           <input name="Email" placeholder="Enter your email "  type="email" value={data.email} onChange={(e)=>handleChange( "email",e.target.value)}/>
         </div>
+
+          
         <button>Next</button>
       </Form>
     </div>
