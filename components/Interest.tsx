@@ -28,12 +28,17 @@ const Interest = ({data , setData , setActiveTab }:{
   console.log(interest);
   setActiveTab(2);
 };
+   const handleBack = () => {
+
+ 
+  setActiveTab(0);
+};
 
   const allInterests = ["coding", "dancing", "gaming", "reading", "music"];
   return (
     <div>
        Interest  Page 
-      <form action={() => handleClick()}>
+      <form >
       
     {allInterests.map((val:any, index:any)=>(
 <div  key={index}className="flex flex-row  ">
@@ -41,8 +46,10 @@ const Interest = ({data , setData , setActiveTab }:{
           <input  value={val}  type="checkbox" checked={data.interest.includes(val)} onChange={(e)=>handleCheckbox(index, val)} />
         </div> 
     ))}
-            
-        <button>Next</button>
+    <div className="flex items-center justify-between  flex-row">
+               <button className="bg-blue-500  " onClick={()=> handleBack()}>Prev</button>
+        <button   className="bg-blue-500" onClick={()=> handleClick()}>Next</button>
+        </div>
       </form>
     </div>
   )

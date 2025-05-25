@@ -29,7 +29,7 @@ export default function Home() {
     age:23,
     email:"srivas@gmail.com",
     interest:["coding", "dancing", "gaming", "reading", "music"],
-    settings:"dark"
+    newsLetter:"yes"
 
   })
   // it makes easier to pass Props to children
@@ -48,7 +48,7 @@ export default function Home() {
         ))}
       </div>
       <div className=" flex items-center justify-center ">
-        <ActiveTabComponent data={data} setData={setData} setActiveTab={setActiveTab} />
+        <ActiveTabComponent   data={data} setData={setData} setActiveTab={setActiveTab} />
       </div>
     </div>
   );

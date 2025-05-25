@@ -6,30 +6,48 @@ const Settings = ({data , setData , setActiveTab }:{
   setActiveTab:any
  
 }) => {
- const {name , age , email}=data;
+ 
 
-  const handleChange=( name:any ,value:any)=>{
-   setData((prevState:any)=>({
-    ...prevState , [name]:value
-   }))
+  const handleChange=( value:any)=>{
+    console.log("Value" , value);
+    console.log("Handling change in settings")
+    setData((prevState:any)=>({
+      ...prevState , newsLetter:value
+    }))
+      console.log("Form  data ready to submit " ,data);
+
+   
 
 }
-   const handleClick = () => {
-  console.log("Button Clicked");
-  setActiveTab(1);
-};
-  return (
-    <div>
-      Seettings  Page 
-      <Form action={() => handleClick()}>
-      
+  const handleBack = () => {
 
-            <div className="flex flex-row  ">
-          <div className="font-semibold pr-4 "> {data.interest[0]}  </div>
-          <input  value={data.interest[0]}  type="checkbox" onChange={(e)=>handleChange( "interest",e.target.value)} />
-        </div>
-        <button>Next</button>
-      </Form>
+ 
+  setActiveTab(0);
+};
+
+const handleSubmit=()=>{
+
+  console.log("Form Submitted with data" ,data);
+  
+}
+  return (
+    <div className="">
+   
+      <form>
+      <div className=" flex flex-col items-center justify-center">
+<label >Subscribe to News Letter</label>
+<select onChange={(e)=>handleChange(e.target.value)}
+>
+  <option value="yes"> Yes</option>
+  <option value="no"> No </option>
+</select>
+   </div>
+            <div className="flex items-center justify-between  flex-row ">
+         <button className="bg-blue-500  " onClick={()=> handleBack()}>Prev</button>
+            <button className="bg-blue-500 pl-4 " onClick={()=> handleSubmit()}>Submit</button>
+            </div>
+         
+      </form>
     </div>
   )
 };

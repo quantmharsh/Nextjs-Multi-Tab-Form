@@ -21,12 +21,12 @@ const Profile = ( {data , setData , setActiveTab }:{
   setActiveTab(1);
 };
   return (
-    <div>
+    <div >
       Profile Page 
-      <Form action={() => handleClick()}>
+      <form className="items-center">
         <div className="flex flex-row  ">
           <div className="font-semibold pr-4 "> Name </div>
-          <input name="Name" placeholder="Enter your name" value={data.name} type="string"  onChange={(e)=>handleChange( "name",e.target.value)}/>
+          <input name="Name"  className="border-blue-300" placeholder="Enter your name" value={data.name} type="string"  onChange={(e)=>handleChange( "name",e.target.value)}/>
         </div>
         <div className="flex flex-row  ">
           <div className="font-semibold pr-4 "> Age </div>
@@ -38,8 +38,8 @@ const Profile = ( {data , setData , setActiveTab }:{
         </div>
 
           
-        <button>Next</button>
-      </Form>
+         <button   className="bg-blue-500" onClick={()=> handleClick()}>Next</button>
+      </form>
     </div>
   );
 };
