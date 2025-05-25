@@ -12,7 +12,9 @@ const Interest = ({data , setData , setActiveTab }:{
     const handleCheckbox=(index:any , val:any )=>{
       setData((prevState:any)=>{
       const currentInterests=prevState.interest||[]  ;
-      const updateInterests= currentInterests.includes(val) ? currentInterests.filter((v:any)=>v!==val):[currentInterests ,...val];
+      console.log("Current Interest" , currentInterests);
+      const updateInterests= currentInterests.includes(val) ? currentInterests.filter((v:any)=>v!==val):[...currentInterests ,val];
+      console.log("Updated Interest" , updateInterests);
 
       return {
         ...prevState  , interest:updateInterests
@@ -31,17 +33,17 @@ const Interest = ({data , setData , setActiveTab }:{
   return (
     <div>
        Interest  Page 
-      <Form action={() => handleClick()}>
+      <form action={() => handleClick()}>
       
     {allInterests.map((val:any, index:any)=>(
 <div  key={index}className="flex flex-row  ">
           <div className="font-semibold pr-4 "> {val} </div>
           <input  value={val}  type="checkbox" checked={data.interest.includes(val)} onChange={(e)=>handleCheckbox(index, val)} />
-        </div>
+        </div> 
     ))}
             
         <button>Next</button>
-      </Form>
+      </form>
     </div>
   )
 };
