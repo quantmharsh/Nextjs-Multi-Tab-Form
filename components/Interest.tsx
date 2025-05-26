@@ -20,7 +20,7 @@ const Interest = ({data , setData , setActiveTab }:{
         ...prevState  , interest:updateInterests
       }
       })
-   console.log("cliecked")
+   console.log("clicked")
    }
    const handleClick = () => {
   console.log("Button Clicked");

@@ -5,6 +5,7 @@ import Settings from "@/components/Settings";
 import Image from "next/image";
 import React from "react";
 import { useState } from "react";
+import { z } from "zod";
 
 export default function Home() {
 
@@ -32,6 +33,16 @@ export default function Home() {
     newsLetter:"yes"
 
   })
+const formSchema = z.object({
+    name: z.string().min(5, "Min length required  5"),
+    age:z.number().min(18 , "Age limit is 18"),
+    email:z.string().email("Must be Valid Email Affess"),
+    interest:z.array(z.string()).min(1,"Min 1 Interest selection is required"),
+    newsLetter:z.string()
+    
+});
+  
+
   // it makes easier to pass Props to children
   const ActiveTabComponent = tabs[activeTab].component
   return (

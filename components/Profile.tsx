@@ -26,7 +26,7 @@ const Profile = ( {data , setData , setActiveTab }:{
       <form className="items-center">
         <div className="flex flex-row  ">
           <div className="font-semibold pr-4 "> Name </div>
-          <input name="Name"  className="border-blue-300" placeholder="Enter your name" value={data.name} type="string"  onChange={(e)=>handleChange( "name",e.target.value)}/>
+          <input  name="Name"  className="border-blue-300" placeholder="Enter your name" value={data.name} type="string"  onChange={(e)=>handleChange( "name",e.target.value)}/>
         </div>
         <div className="flex flex-row  ">
           <div className="font-semibold pr-4 "> Age </div>
