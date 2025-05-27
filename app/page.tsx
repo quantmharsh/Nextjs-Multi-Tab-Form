@@ -41,6 +41,11 @@ const formSchema = z.object({
     newsLetter:z.string()
     
 });
+const handleSubmit=()=>{
+  
+  console.log("Form Submitted with data" ,data);
+  
+}
   
 
   // it makes easier to pass Props to children
@@ -60,6 +65,13 @@ const formSchema = z.object({
       </div>
       <div className=" flex items-center justify-center ">
         <ActiveTabComponent   data={data} setData={setData} setActiveTab={setActiveTab} />
+        {activeTab===2 && 
+         <div className="bg-red-400 w-auto">
+       
+        <button  className=" text-center"onClick={()=>handleSubmit()}>
+          Submit </button>
+          </div>
+          }
       </div>
     </div>
   );

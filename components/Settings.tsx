@@ -25,11 +25,7 @@ const Settings = ({data , setData , setActiveTab }:{
   setActiveTab(0);
 };
 
-const handleSubmit=()=>{
 
-  console.log("Form Submitted with data" ,data);
-  
-}
   return (
     <div className="">
    
@@ -44,7 +40,7 @@ const handleSubmit=()=>{
    </div>
             <div className="flex items-center justify-between  flex-row ">
          <button className="bg-blue-500  " onClick={()=> handleBack()}>Prev</button>
-            <button className="bg-blue-500 pl-4 " onClick={()=> handleSubmit()}>Submit</button>
+        
             </div>
          
       </form>
