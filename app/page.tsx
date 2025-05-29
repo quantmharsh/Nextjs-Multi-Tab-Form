@@ -35,11 +35,26 @@ export default function Home() {
   })
 const formSchema = z.object({
     name: z.string().min(5, "Min length required  5"),
-    age:z.number().min(18 , "Age limit is 18"),
-    email:z.string().email("Must be Valid Email Affess"),
+    age: z.preprocess((val)=>val===""?undefined :Number(val)  ,z.number().min(18 , "Age limit is 18")),
+    email:z.string().email("Must be Valid Email Address"),
     interest:z.array(z.string()).min(1,"Min 1 Interest selection is required"),
     newsLetter:z.string()
     
+});
+const validateField = (field: keyof typeof data, value: any) => {
+  try {
+    formSchema.pick({ [field]: true } as any).parse({ [field]: value });
+    return ""; // No error
+  } catch (e: any) {
+    return e.errors?.[0]?.message || "Invalid value";
+  }
+};
+const [errors, setErrors] = useState({
+  name: "",
+  age: "",
+  email: "",
+  interest:"",
+  newsLetter:""
 });
 const handleSubmit=()=>{
   
@@ -64,7 +79,9 @@ const handleSubmit=()=>{
         ))}
       </div>
       <div className=" flex items-center justify-center ">
-        <ActiveTabComponent   data={data} setData={setData} setActiveTab={setActiveTab} />
+        <ActiveTabComponent    errors={errors}
+  setErrors={setErrors}
+  validateField={validateField}  data={data} setData={setData} setActiveTab={setActiveTab} />
         {activeTab===2 && 
          <div className="bg-red-400 w-auto">
        
