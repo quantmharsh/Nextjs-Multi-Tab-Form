@@ -61,6 +61,7 @@ const handleSubmit=()=>{
   console.log("Form Submitted with data" ,data);
   
 }
+const isValid =formSchema.safeParse(data).success;
   
 
   // it makes easier to pass Props to children
@@ -83,9 +84,9 @@ const handleSubmit=()=>{
   setErrors={setErrors}
   validateField={validateField}  data={data} setData={setData} setActiveTab={setActiveTab} />
         {activeTab===2 && 
-         <div className="bg-red-400 w-auto">
+         <div className="bg-purple-400 w-auto">
        
-        <button  className=" text-center"onClick={()=>handleSubmit()}>
+        <button    className=" text-center disabled:bg-red-800"  disabled={!isValid} onClick={()=>handleSubmit()}>
           Submit </button>
           </div>
           }
