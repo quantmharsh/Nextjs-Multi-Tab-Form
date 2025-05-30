@@ -70,13 +70,14 @@ const isValid =formSchema.safeParse(data).success;
     <div>
       <div className="flex flex-row items-center justify-center  ">
         {tabs.map((t, index) => (
-          <div
+          <button
             key={index}
             className="px-4 cursor-pointer "
+            disabled={!isValid}
             onClick={() => setActiveTab(index)}
           >
             {t.name}
-          </div>
+          </button>
         ))}
       </div>
       <div className=" flex items-center justify-center ">
